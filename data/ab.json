@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "title": "Название"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Ка`1w2qer3t4yuкой тип данных используется для хранения целых чисел в JavaScript?",
+      "answers": [
+        "Number",
+        "Integer",
+        "Float",
+        "Decimal"
+      ],
+      "correct": [
+        "Number"
+      ]
+    }
+  ]
+}

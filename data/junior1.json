@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "title": "Название теста",
+    "status": "Delete || Update || submit"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Какой тип данных используется для хранения целых чисел в JavaScript?",
+      "answers": {
+        "a": "Number",
+        "b": "Integer",
+        "c": "Float",
+        "d": "Decimal"
+      },
+      "correct": [
+        "a",
+        "b"
+      ] // ответ в виде ключа, а так же убераем checkbox 
+    },
+    {
+      "id": 2,
+      "question": "Какой тег HTML используется для создания гиперссылки?",
+      "answers": [
+        "<a>",
+        "<link>",
+        "<href>",
+        "<hyperlink>"
+      ],
+      "correct": [
+        "<a>"
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Какие из следующих языков являются языками программирования?",
+      "checkbox": true,
+      "answers": [
+        "Python",
+        "HTML",
+        "Java",
+        "CSS"
+      ],
+      "correct": [
+        "Python",
+        "Java"
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Какой протокол используется для безопасной передачи данных по сети?",
+      "answers": [
+        "HTTP",
+        "FTP",
+        "SMTP",
+        "HTTPS"
+      ],
+      "correct": [
+        "HTTPS"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Что означает аббревиатура CPU?",
+      "answers": [
+        "Central Processing Unit",
+        "Central Programming Unit",
+        "Computer Processing Unit",
+        "Control Processing Unit"
+      ],
+      "correct": [
+        "Central Processing Unit"
+      ]
+    }
+  ]
+}
