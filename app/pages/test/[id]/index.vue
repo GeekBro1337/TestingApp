@@ -1,22 +1,21 @@
 <template>
-    <div>
-        <h1 class="flex flex-row">
-            <span>Loading: </span>
-            <span> {{ loader.isLoading }} </span>
-        </h1>
-        <h1> 
-            {{  result }}
-        </h1>
-    </div>
-
+  <div class="p-4">
+    <h1>Тест ID: {{ id }}</h1>
+    <pre>{{ result }}</pre>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useMyLoaderStore } from "~/stores/loader";
-import { getTest } from "~~/composables/Questions";
-const route = useRoute()
-const loader = useMyLoaderStore()
+const route = useRoute();
+const id = route.params.id as string;
 
-const id = route.params.id as string
-const result = ref<Test.Test | null>(await getTest(id))
+const result = ref(null);
+
+onMounted(async () => {
+  try {
+    result.value = await $fetch(`/api/tests/${id}`);
+  } catch (error) {
+    result.value = { error: error };
+  }
+});
 </script>

@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "title": "Тестовый набор вопросов",
+    "status": "Update"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Что такое переменная в программировании?",
+      "answers": {
+        "a": "Контейнер для хранения данных",
+        "b": "Тип данных",
+        "c": "Функция",
+        "d": "Объект"
+      },
+      "correct": ["a"]
+    },
+    {
+      "id": 2,
+      "question": "Какие из этих языков являются интерпретируемыми?",
+      "answers": {
+        "a": "Python",
+        "b": "C++",
+        "c": "JavaScript",
+        "d": "Java"
+      },
+      "correct": ["a", "c"]
+    },
+    {
+      "id": 3,
+      "question": "Что означает HTTP?",
+      "answers": {
+        "a": "HyperText Transfer Protocol",
+        "b": "High Tech Transfer Protocol",
+        "c": "Home Tool Transfer Protocol",
+        "d": "Host Type Transfer Protocol"
+      },
+      "correct": ["a"]
+    },
+    {
+      "id": 4,
+      "question": "Какая команда используется для создания ветки в Git?",
+      "answers": {
+        "a": "git branch",
+        "b": "git create",
+        "c": "git new",
+        "d": "git add"
+      },
+      "correct": ["a"]
+    },
+    {
+      "id": 5,
+      "question": "Что такое массив?",
+      "answers": {
+        "a": "Структура данных для хранения множества элементов",
+        "b": "Тип переменной",
+        "c": "Функция",
+        "d": "Условная конструкция"
+      },
+      "correct": ["a"]
+    }
+  ]
+}
