@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import ModeToggle from "~~/components/ModeToggle.vue";
 import { useEditStore } from "~/stores/edit";
 const edit = useEditStore();
 
@@ -11,14 +10,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg">
+  <div class="flex items-center justify-center p-4">
+    <div
+      class="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg mt-8"
+    >
       <h1 class="text-3xl font-bold text-center text-gray-900">
         Демо режима редактирования
       </h1>
-
-      <!-- Кнопка -->
-      <ModeToggle />
 
       <!-- Индикация текущего режима -->
       <div class="text-center">
