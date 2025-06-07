@@ -2,19 +2,19 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ['@nuxt/ui', '@nuxt/eslint', '@pinia/nuxt'],
+  modules: ["@nuxt/ui", "@nuxt/eslint", "@pinia/nuxt"],
 
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
   ui: {
-    colorMode: false
+    colorMode: false,
   },
 
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
   },
-// todo: make runtime config
-  runtimeConfig: {
-    "test_directory": "/home/alisher/-t/test123/data"
-  },
-  compatibilityDate: '2024-11-27'
-})
+  // todo: make runtime config
+  // runtimeConfig: {
+  //   test_directory: "/home/alisher/-t/test123/data",
+  // },
+  compatibilityDate: "2024-11-27",
+});
