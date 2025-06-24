@@ -1,0 +1,251 @@
+{
+  "title": "User Registration Form",
+  "description": "Please fill out all required fields to create your account.",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validation": {
+        "minLength": 2,
+        "maxLength": 50
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validation": {
+        "minLength": 2,
+        "maxLength": 50
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "email",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+      }
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "type": "password",
+      "placeholder": "Enter your password",
+      "required": true,
+      "validation": {
+        "minLength": 8,
+        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)"
+      }
+    },
+    {
+      "name": "confirmPassword",
+      "label": "Confirm Password",
+      "type": "password",
+      "placeholder": "Confirm your password",
+      "required": true
+    },
+    {
+      "name": "age",
+      "label": "Age",
+      "type": "number",
+      "placeholder": "Enter your age",
+      "required": false,
+      "validation": {
+        "min": 13,
+        "max": 120
+      }
+    },
+    {
+      "name": "bio",
+      "label": "Bio",
+      "type": "textarea",
+      "placeholder": "Tell us about yourself...",
+      "required": false,
+      "validation": {
+        "maxLength": 500
+      }
+    },
+    {
+      "name": "interests",
+      "label": "Interests",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "Technology", "value": "tech" },
+        { "label": "Sports", "value": "sports" },
+        { "label": "Music", "value": "music" },
+        { "label": "Travel", "value": "travel" },
+        { "label": "Cooking", "value": "cooking" },
+        { "label": "Reading", "value": "reading" }
+      ]
+    },
+    {
+      "name": "newsletter",
+      "label": "Subscribe to Newsletter",
+      "type": "checkbox",
+      "required": false
+    },
+    {
+      "name": "quizQuestion1",
+      "label": "What is your preferred programming language?",
+      "type": "checkboxMultiple",
+      "required": true,
+      "options": [
+        { "label": "JavaScript/TypeScript", "value": "js" },
+        { "label": "Python", "value": "python" },
+        { "label": "Java", "value": "java" },
+        { "label": "C++", "value": "cpp" },
+        { "label": "Go", "value": "go" },
+        { "label": "Rust", "value": "rust" }
+      ]
+    },
+    {
+      "name": "quizQuestion2",
+      "label": "Which development methodologies do you use?",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "Agile/Scrum", "value": "agile" },
+        { "label": "Waterfall", "value": "waterfall" },
+        { "label": "Kanban", "value": "kanban" },
+        { "label": "DevOps", "value": "devops" },
+        { "label": "Test-Driven Development", "value": "tdd" },
+        { "label": "Behavior-Driven Development", "value": "bdd" }
+      ]
+    },
+    {
+      "name": "quizQuestion3",
+      "label": "What type of projects do you work on?",
+      "type": "checkboxMultiple",
+      "required": true,
+      "options": [
+        { "label": "Web Applications", "value": "web" },
+        { "label": "Mobile Apps", "value": "mobile" },
+        { "label": "Desktop Applications", "value": "desktop" },
+        { "label": "API Development", "value": "api" },
+        { "label": "Data Science/AI", "value": "ai" },
+        { "label": "Game Development", "value": "games" },
+        { "label": "System Administration", "value": "sysadmin" },
+        { "label": "DevOps/Infrastructure", "value": "infrastructure" }
+      ]
+    },
+    {
+      "name": "quizQuestion4",
+      "label": "Which cloud platforms do you use?",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "AWS", "value": "aws" },
+        { "label": "Google Cloud Platform", "value": "gcp" },
+        { "label": "Microsoft Azure", "value": "azure" },
+        { "label": "DigitalOcean", "value": "digitalocean" },
+        { "label": "Heroku", "value": "heroku" },
+        { "label": "Vercel", "value": "vercel" },
+        { "label": "Netlify", "value": "netlify" },
+        { "label": "None/On-premise", "value": "none" }
+      ]
+    },
+    {
+      "name": "quizQuestion5",
+      "label": "What databases do you work with?",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "PostgreSQL", "value": "postgresql" },
+        { "label": "MySQL", "value": "mysql" },
+        { "label": "MongoDB", "value": "mongodb" },
+        { "label": "Redis", "value": "redis" },
+        { "label": "SQLite", "value": "sqlite" },
+        { "label": "Oracle", "value": "oracle" },
+        { "label": "SQL Server", "value": "sqlserver" },
+        { "label": "Elasticsearch", "value": "elasticsearch" }
+      ]
+    },
+    {
+      "name": "quizQuestion6",
+      "label": "Which frameworks do you use?",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "React", "value": "react" },
+        { "label": "Vue.js", "value": "vue" },
+        { "label": "Angular", "value": "angular" },
+        { "label": "Node.js/Express", "value": "express" },
+        { "label": "Django", "value": "django" },
+        { "label": "Flask", "value": "flask" },
+        { "label": "Spring Boot", "value": "spring" },
+        { "label": "Laravel", "value": "laravel" },
+        { "label": "Ruby on Rails", "value": "rails" },
+        { "label": "ASP.NET", "value": "aspnet" }
+      ]
+    },
+    {
+      "name": "quizQuestion7",
+      "label": "What tools do you use for version control?",
+      "type": "checkboxMultiple",
+      "required": true,
+      "options": [
+        { "label": "Git", "value": "git" },
+        { "label": "GitHub", "value": "github" },
+        { "label": "GitLab", "value": "gitlab" },
+        { "label": "Bitbucket", "value": "bitbucket" },
+        { "label": "SVN", "value": "svn" },
+        { "label": "Mercurial", "value": "mercurial" }
+      ]
+    },
+    {
+      "name": "quizQuestion8",
+      "label": "Which testing frameworks do you use?",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "Jest", "value": "jest" },
+        { "label": "Mocha", "value": "mocha" },
+        { "label": "Cypress", "value": "cypress" },
+        { "label": "Selenium", "value": "selenium" },
+        { "label": "PyTest", "value": "pytest" },
+        { "label": "JUnit", "value": "junit" },
+        { "label": "PHPUnit", "value": "phpunit" },
+        { "label": "RSpec", "value": "rspec" }
+      ]
+    },
+    {
+      "name": "quizQuestion9",
+      "label": "What is your experience level?",
+      "type": "checkboxMultiple",
+      "required": true,
+      "options": [
+        { "label": "Beginner (0-2 years)", "value": "beginner" },
+        { "label": "Intermediate (3-5 years)", "value": "intermediate" },
+        { "label": "Advanced (6-10 years)", "value": "advanced" },
+        { "label": "Expert (10+ years)", "value": "expert" }
+      ]
+    },
+    {
+      "name": "quizQuestion10",
+      "label": "What are your career goals?",
+      "type": "checkboxMultiple",
+      "required": false,
+      "options": [
+        { "label": "Full-Stack Developer", "value": "fullstack" },
+        { "label": "Frontend Developer", "value": "frontend" },
+        { "label": "Backend Developer", "value": "backend" },
+        { "label": "DevOps Engineer", "value": "devops" },
+        { "label": "Data Scientist", "value": "datascientist" },
+        { "label": "Machine Learning Engineer", "value": "mlengineer" },
+        { "label": "Software Architect", "value": "architect" },
+        { "label": "Technical Lead", "value": "techlead" },
+        { "label": "Project Manager", "value": "pm" },
+        { "label": "Entrepreneur/Startup", "value": "entrepreneur" }
+      ]
+    }
+  ]
+}
