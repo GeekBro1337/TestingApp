@@ -13,10 +13,12 @@ declare global {
                 answer: string
             }
 
-        interface FormField { 
+        interface FormField {
             name: string
             label: string
-            type: 'text'| 'number' | 'textarea' | 'checkboxMultiple'
+            type: 'text' | 'email' | 'password' | 'number' |
+                'textarea' | 'checkbox' | 'checkboxMultiple' |
+                'select' | 'switch' | 'slider' | 'radio'
             placeholder?: string
             required: boolean
             validation?: { 

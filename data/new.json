@@ -1,0 +1,38 @@
+{
+  "title": "Feedback Form",
+  "description": "Help us improve by answering a few questions.",
+  "metadata": {
+    "title": "Feedback",
+    "answers": []
+  },
+  "fields": [
+    {
+      "name": "name",
+      "label": "Your Name",
+      "type": "text",
+      "placeholder": "Enter your name",
+      "required": true
+    },
+    {
+      "name": "satisfaction",
+      "label": "How satisfied are you?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        { "label": "Very satisfied", "value": "very" },
+        { "label": "Satisfied", "value": "satisfied" },
+        { "label": "Neutral", "value": "neutral" },
+        { "label": "Unsatisfied", "value": "unsatisfied" }
+      ]
+    },
+    {
+      "name": "improvements",
+      "label": "What can we improve?",
+      "type": "textarea",
+      "required": false,
+      "validation": {
+        "maxLength": 200
+      }
+    }
+  ]
+}
