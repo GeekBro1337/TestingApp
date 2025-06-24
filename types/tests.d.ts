@@ -39,4 +39,6 @@ declare global {
             [key: string]: string | number | boolean | string[] | undefined
         }
         }
-}
+    }
+    type UserRole = "guest" | "admin"
+ }

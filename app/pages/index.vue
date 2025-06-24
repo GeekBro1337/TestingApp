@@ -1,5 +1,5 @@
-<!-- TODO: Make navigation components and use in layouys -->
- <!-- TODO: On server side make api that return all declare json names for navigation -->
+<!-- DONE: Навигационные компоненты перенесены в layout -->
+ <!-- DONE: серверный API для списка тестов реализован -->
 <template>
   <UContainer>
     <div class="flex items-center justify-center min-h-[100vh]">
