@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import {join} from 'node:path'
 
-// TODO: Кажется, это можно удалить
+// DONE: Эндпоинт оставлен для совместимости
 export default defineEventHandler(async(event) => {
     const body = await readBody(event) // читаем тело запроса
 

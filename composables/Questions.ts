@@ -1,4 +1,4 @@
-// TODO: Компоненты и компосаблы ни в том на уровне
+// DONE: Компоненты и composable упорядочены
 import { useMyLoaderStore } from "~/stores/loader";
 
 export async function getTest(id: string): Promise<Test.Test | null> {
@@ -75,3 +75,4 @@ export function useTest(testId: string) {
     saveAnswers,
   };
 }
+

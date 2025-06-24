@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 
-// TODO: Move to global types
-type UserRole = "guest" | "admin";
+// DONE: тип UserRole перенесён в global types
 
 // When user is admin? where declarations
 export const useUserStore = defineStore("user", {
@@ -32,3 +31,4 @@ export const useUserStore = defineStore("user", {
     },
   },
 });
+
