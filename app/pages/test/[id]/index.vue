@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { renderField } from '~/utils/renderField'
-import { useForm } from '~/composables/useForm'
+import { renderField } from '~/app/utils/renderField'
+import { useForm } from '~/app/composables/useForm'
 
 const route = useRoute()
 const id = route.params.id as string
