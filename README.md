@@ -43,11 +43,12 @@
 │               ├── index.post.ts   # POST /api/tests/:id
 │               └── index.delete.ts # DELETE /api/tests/:id
 ├── data/                        # JSON файлы с тестами
-│   ├── juniour.json            # Тест для джуниоров
-│   ├── junior1.json            # Тест Junior Level 1
-│   └── test.json               # Базовый тест
-├── composables/                 # Vue Composables
-│   └── Questions.ts            # Работа с тестами и API
+│   └── new.json                # Пример конфигурации формы
+├── app/composables/             # Vue Composables
+│   ├── Questions.ts            # Работа с тестами и API
+│   └── useForm.ts              # Логика работы с динамической формой
+├── app/utils/                   # Вспомогательные утилиты
+│   └── renderField.ts          # Отрисовка полей формы
 ├── types/                       # Определения типов TypeScript
 │   └── tests.d.ts              # Типы для тестов
 └── public/                      # Статичные файлы
@@ -178,7 +179,7 @@ GET /api/tests/juniour
 
 Удаляет тест (в разработке)
 
-### Composables (`composables/Questions.ts`)
+### Composables (`app/composables/Questions.ts`)
 
 #### `getTest(id: string)`
 
