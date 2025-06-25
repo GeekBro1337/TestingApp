@@ -10,6 +10,12 @@ declare global {
       question: string
       placeholder?: string
       required: boolean
+      /**
+       * Optional array of correct answer values. Only available on the server.
+       */
+      correct?: string[]
+      /** Points awarded for this question */
+      points?: number
       validation?: {
         minLength?: number
         maxLength?: number

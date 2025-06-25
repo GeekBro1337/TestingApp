@@ -7,7 +7,7 @@ const id = route.params.id as string
 
 const { data: formConfig } = await useFetch<Test.FormConfig>(`/api/tests/${id}`)
 
-const { state, validate, onSubmit } = useForm(formConfig.value)
+const { state, validate, onSubmit, result } = useForm(formConfig.value)
 </script>
 
 <template>
@@ -52,6 +52,11 @@ const { state, validate, onSubmit } = useForm(formConfig.value)
     <div class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
       <h3 class="text-lg font-semibold mb-2">Form State (Debug)</h3>
       <pre class="text-sm overflow-auto">{{ JSON.stringify(state, null, 2) }}</pre>
+    </div>
+
+    <div v-if="result" class="mt-4 p-4 bg-green-100 dark:bg-green-800 rounded-lg">
+      <h3 class="text-lg font-semibold mb-2">Results</h3>
+      <p>You scored {{ result.total }} out of {{ result.max }}</p>
     </div>
   </div>
 </template>

@@ -1,5 +1,6 @@
 import { useToast } from '#imports'
 import type { FormError, FormSubmitEvent } from '@nuxt/ui'
+import { evaluateAnswers, type EvaluationResult } from '../utils/evaluateAnswers'
 
 export function useForm(formConfig: Test.FormConfig) {
   const initialState: Test.FormState = {}
@@ -13,6 +14,7 @@ export function useForm(formConfig: Test.FormConfig) {
   })
 
   const state = reactive<Test.FormState>(initialState)
+  const result = ref<EvaluationResult | null>(null)
 
   const validate = (formState: Test.FormState): FormError[] => {
     const errors: FormError[] = []
@@ -78,17 +80,24 @@ export function useForm(formConfig: Test.FormConfig) {
   const toast = useToast()
 
   const onSubmit = async (event: FormSubmitEvent<Test.FormState>) => {
+    result.value = evaluateAnswers(
+      formConfig as Test.FormConfig & {
+        fields: Array<Test.FormField & { correct?: string[]; points?: number }>
+      },
+      event.data
+    )
+
     toast.add({
-      title: 'Success!',
-      description: 'The form has been submitted successfully.',
-      color: 'success'
+      title: 'Results',
+      description: `You scored ${result.value.total} out of ${result.value.max}`,
+      color: 'primary'
     })
-    console.log('Form submitted with data:', event.data)
   }
 
   return {
     state,
     validate,
-    onSubmit
+    onSubmit,
+    result
   }
 }

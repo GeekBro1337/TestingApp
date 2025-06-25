@@ -9,6 +9,8 @@
       "type": "radioButton",
       "question": "Interests",
       "required": false,
+      "points": 1,
+      "correct": ["tech"],
       "options": [
         { "label": "Technology", "value": "tech" },
         { "label": "Sports", "value": "sports" },
@@ -25,6 +27,8 @@
       "type": "checkboxGroup",
       "question": "Subscribe to Newsletter",
       "required": false,
+      "points": 2,
+      "correct": ["dfs43", "dfs16"],
       "options": [
         { "label": "some q", "value": "dfs43" },
         { "label": "some q2", "value": "dfs62" },
@@ -38,6 +42,8 @@
       "type": "checkboxGroup",
       "question": "What is your preferred programming language?",
       "required": true,
+      "points": 3,
+      "correct": ["js"],
       "options": [
         { "label": "JavaScript/TypeScript", "value": "js" },
         { "label": "Python", "value": "python" },
@@ -54,6 +60,8 @@
       "type": "checkboxGroup",
       "question": "Which development methodologies do you use?",
       "required": false,
+      "points": 2,
+      "correct": ["agile", "devops"],
       "options": [
         { "label": "Agile/Scrum", "value": "agile" },
         { "label": "Waterfall", "value": "waterfall" },
@@ -69,7 +77,9 @@
       "label": "feedback",
       "type": "textarea",
       "question": "Enter you feedback ",
-      "required": false
+      "required": false,
+      "points": 0,
+      "correct": []
     }
   ]
 }
