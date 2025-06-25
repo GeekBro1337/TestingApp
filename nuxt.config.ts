@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  imports: {
+    dirs: ['app/composables', 'app/utils']
+  },
   // todo: make runtime config
   // runtimeConfig: {
   //   test_directory: "/home/alisher/-t/test123/data",

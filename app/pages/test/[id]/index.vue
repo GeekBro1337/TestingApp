@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { renderField } from '~/app/utils/renderField'
-import { useForm } from '~/app/composables/useForm'
+import { renderField, useForm } from '#imports'
 
 const route = useRoute()
 const id = route.params.id as string
 
 const { data: formConfig } = await useFetch<Test.FormConfig>(`/api/tests/${id}`)
 
-const { state, validate, onSubmit, result } = useForm(formConfig.value)
+const { state, validate, onSubmit, result } = useForm(formConfig.value, id)
 </script>
 
 <template>
