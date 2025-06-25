@@ -13,7 +13,8 @@ declare global {
                 answer: string
             }
 
-        interface FormField { 
+        interface FormField {
+            id: number 
             name: string
             label: string
             type: 'text'| 'number' | 'textarea' | 'checkboxMultiple'
