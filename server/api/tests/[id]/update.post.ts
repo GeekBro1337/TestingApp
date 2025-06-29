@@ -12,7 +12,11 @@ export default defineEventHandler(async (event: H3Event) => {
   const { id } = event.context.params as { id: string };
   const body = await readBody<Record<string, unknown>>(event);
 
-  const parsed = testSchema.safeParse(body);
+  // Always enforce original file name
+  const parsed = testSchema.safeParse({
+    ...body,
+    fileName: `${id}.json`,
+  });
   if (!parsed.success) {
     throw createError({
       statusCode: 400,

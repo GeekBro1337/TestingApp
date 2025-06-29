@@ -4,7 +4,7 @@
     <UInput
       v-model="test.fileName"
       label="File Name"
-      placeholder="example.json"
+      disabled
     />
     <UInput v-model="test.title" label="Title" />
     <UTextarea v-model="test.description" label="Description" />
