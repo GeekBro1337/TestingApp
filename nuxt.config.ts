@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: ["@nuxt/ui", "@nuxt/eslint", "@pinia/nuxt"],
+  devServer: {
+    port: 4040,
+    host: '0.0.0.0'
+  },
 
   css: ["~/assets/css/main.css"],
   ui: {

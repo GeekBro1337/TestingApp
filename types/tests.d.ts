@@ -4,14 +4,16 @@ export {}
 declare global {
         namespace Test {
             interface Metadata{
+                fileName: string,
                 title: string,
-                answers: answer[]
+                fields: FormField[]
+                // answers: answer[]
             }
 
-            interface answer {
-                key: uuid,
-                answer: string
-            }
+            // interface answer {
+            //     key: uuid,
+            //     answer: string
+            // }
 
         interface FormField {
             id: number 

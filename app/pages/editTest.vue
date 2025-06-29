@@ -26,8 +26,8 @@ onMounted(() => {
             class="px-3 py-1 text-sm font-semibold rounded-full"
             :class="
               edit.isEditMode
-                ? 'bg-blue-100 text-blue-800'
-                : 'bg-gray-200 text-gray-800'
+                ? 'bg-primary-100 text-primary-800'
+                : 'bg-neutral-200 text-neutral-800'
             "
           >
             {{ edit.mode }}
@@ -38,9 +38,9 @@ onMounted(() => {
       <!-- Пример условного рендера -->
       <div
         v-if="edit.isEditMode"
-        class="p-4 border-l-4 bg-blue-50 border-blue-500"
+        class="p-4 border-l-4 bg-primary-50 border-primary-500"
       >
-        <p class="text-blue-800">
+        <p class="text-primary-800">
           Эта секция видна <b>только</b> в режиме редактирования.
         </p>
       </div>

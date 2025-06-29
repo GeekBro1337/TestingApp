@@ -20,7 +20,13 @@ const navItems = [
         label: 'Test-1',
         description: 'Test for beginers',
         icon: 'i-lucide-house',
-        to: '/test/test'
+        to: '/test/new'
+      },
+      {
+        label: 'SQL-test',
+        description: 'Test for beginers',
+        icon: 'i-lucide-book-key',
+        to: '/test/sql_test'
       },
     ]
   },
@@ -46,19 +52,21 @@ const navItems = [
 </script>
 
 <template>
-  <UContainer class="flex flex-col bg-gray-100 rounded-b-lg">
+  <!-- <UContainer class="flex flex-col bg-neutral-100 "></UContainer> -->
+  <div class="flex flex-col bg-neutral-100 ">
     <!-- Header как отдельный компонент -->
     <header>
-      <UContainer class="bg-red">
-        <div class="flex items-center justify-between py-4">
-          <h1 class="text-xl font-bold">MyApp</h1>
+        <div class="flex items-center justify-between p-4 ">
+          <NuxtLink to="/">
+            <h1 class="text-xl font-bold text-primary-500">TestingApp</h1>
+          </NuxtLink>
           <UNavigationMenu :items="navItems" />
           <div class="flex items-center gap-2">
             <span class="text-sm">
-              Роль: <strong>{{ userStore.role }}</strong>
+              Role: <strong>{{ userStore.role }}</strong>
             </span>
             <UButton
-              size="sm"
+              size="lg"
               color="primary"
               @click="userStore.toggleRole()"
             >
@@ -72,15 +80,23 @@ const navItems = [
             >
               {{
                 editStore.isEditMode
-                  ? "Выключить редактирование"
-                  : "Включить редактирование"
+                  ? "Turn off editing"
+                  : "Turn on editing"
               }}
+            </UButton>
+            <UButton
+              v-if="userStore.isAdmin"
+              size="sm"
+              :color='primary'
+              icon="i-lucide-pen"
+              to="/makeNewTest"
+            >
+            newTest
             </UButton>
           </div>
         </div>
-      </UContainer>
     </header>
-  </UContainer>
+  </div>
   <div>
   <slot />
   </div>
