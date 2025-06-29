@@ -9,7 +9,7 @@
         <span class="font-bold">Field {{ index + 1 }}</span>
         <UButton size="xs" color="red" icon="i-lucide-x" @click="removeField(index)" />
       </div>
-      <UInput v-model.number="field.id" type="number" label="Id" />
+      <UInput v-model.number="field.id" type="number" label="Id" disabled />
       <UInput v-model="field.name" label="Name" />
       <UInput v-model="field.label" label="Label" />
       <UInput v-model="field.question" label="Question" />
@@ -25,15 +25,20 @@
 
       <div class="space-y-2">
         <div v-for="(opt, idx) in field.options" :key="idx" class="flex gap-2 items-center">
-          <UInput v-model="opt.label" placeholder="Label" class="flex-1" />
-          <UInput v-model="opt.value" placeholder="Value" class="flex-1" />
+          <UInput v-model="opt.label" label="Option Label" class="flex-1" />
+          <UInput v-model="opt.value" label="Option Value" class="flex-1" />
           <UButton size="xs" color="red" icon="i-lucide-x" @click="removeOption(field, idx)" />
         </div>
         <UButton size="xs" color="primary" @click="addOption(field)">Add option</UButton>
       </div>
     </div>
 
-    <div class="flex gap-2">
+    <div class="flex gap-2 items-end">
+      <USelect
+        v-model="newFieldType"
+        :options="fieldTypes"
+        label="New Field Type"
+      />
       <UButton color="primary" @click="addField">Add field</UButton>
       <UButton color="primary" @click="submit">Submit</UButton>
     </div>
@@ -43,17 +48,19 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, computed } from 'vue'
+import { reactive, computed, ref } from 'vue'
 import { useToast } from '#imports'
 
 interface Option { label: string; value: string }
+
+type FieldType = 'text' | 'number' | 'textarea' | 'radioButton' | 'checkboxGroup'
 
 interface FieldForm {
   id: number
   name: string
   label: string
   question: string
-  type: 'text' | 'number' | 'textarea' | 'radioButton' | 'checkboxGroup'
+  type: FieldType
   required: boolean
   points: number
   placeholder?: string
@@ -63,6 +70,8 @@ interface FieldForm {
 
 const fieldTypes = ['text', 'number', 'textarea', 'radioButton', 'checkboxGroup']
 
+const newFieldType = ref<FieldType>('text')
+
 const test = reactive<{ fileName: string; title: string; description: string; fields: FieldForm[] }>({
   fileName: '',
   title: '',
@@ -71,12 +80,15 @@ const test = reactive<{ fileName: string; title: string; description: string; fi
 })
 
 function addField() {
+  const nextId = test.fields.length
+    ? Math.max(...test.fields.map((f) => f.id)) + 1
+    : 1
   test.fields.push({
-    id: Date.now(),
+    id: nextId,
     name: '',
     label: '',
     question: '',
-    type: 'text',
+    type: newFieldType.value,
     required: false,
     points: 0,
     placeholder: '',
