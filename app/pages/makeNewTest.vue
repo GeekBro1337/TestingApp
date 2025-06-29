@@ -53,7 +53,13 @@ import { useToast } from '#imports'
 
 interface Option { label: string; value: string }
 
-type FieldType = 'text' | 'number' | 'textarea' | 'radioButton' | 'checkboxGroup'
+type FieldType =
+  | 'text'
+  | 'number'
+  | 'textarea'
+  | 'radioButton'
+  | 'checkboxGroup'
+  | 'checkboxMultiple'
 
 interface FieldForm {
   id: number
@@ -68,7 +74,14 @@ interface FieldForm {
   options: Option[]
 }
 
-const fieldTypes = ['text', 'number', 'textarea', 'radioButton', 'checkboxGroup']
+const fieldTypes = [
+  { label: 'Text', value: 'text' },
+  { label: 'Number', value: 'number' },
+  { label: 'Textarea', value: 'textarea' },
+  { label: 'Radio Button', value: 'radioButton' },
+  { label: 'Checkbox Group', value: 'checkboxGroup' },
+  { label: 'Checkbox Multiple', value: 'checkboxMultiple' }
+]
 
 const newFieldType = ref<FieldType>('text')
 
