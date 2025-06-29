@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import type { H3Event } from 'h3'
-import { evaluateAnswers } from '../../utils/evaluateAnswers'
+import { evaluateAnswers } from '../../../utils/evaluateAnswers'
 
 export default defineEventHandler(async (event: H3Event) => {
   const { id } = event.context.params!

@@ -53,7 +53,8 @@ const navItems = [
 
 <template>
   <!-- <UContainer class="flex flex-col bg-neutral-100 "></UContainer> -->
-  <div class="flex flex-col bg-neutral-100 ">
+  <div>
+    <div class="flex flex-col bg-neutral-100 ">
     <!-- Header как отдельный компонент -->
     <header>
         <div class="flex items-center justify-between p-4 ">
@@ -96,8 +97,9 @@ const navItems = [
           </div>
         </div>
     </header>
-  </div>
-  <div>
-  <slot />
+    </div>
+    <div>
+      <slot />
+    </div>
   </div>
 </template>
