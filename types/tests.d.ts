@@ -19,7 +19,7 @@ declare global {
             id: number 
             name: string
             label: string
-            type: 'text'| 'number' | 'textarea' | 'checkboxMultiple'
+            type: 'text' | 'number' | 'textarea' | 'checkboxMultiple' | 'checkboxGroup' | 'radioButton'
             placeholder?: string
             required: boolean
             validation?: { 
