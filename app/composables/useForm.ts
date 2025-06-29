@@ -1,8 +1,12 @@
 import { useToast } from '#imports'
 import type { FormError, FormSubmitEvent } from '@nuxt/ui'
-import { evaluateAnswers, type EvaluationResult } from '../utils/evaluateAnswers'
 
-export function useForm(formConfig: Test.FormConfig) {
+export interface EvaluationResult {
+  total: number
+  max: number
+}
+
+export function useForm(formConfig: Test.FormConfig, testId: string) {
   const initialState: Test.FormState = {}
 
   // TODO: Add types
@@ -82,13 +86,12 @@ export function useForm(formConfig: Test.FormConfig) {
   const toast = useToast()
 
   const onSubmit = async (event: FormSubmitEvent<Test.FormState>) => {
-
-    // TODO: Fetch require to server api
-    result.value = evaluateAnswers(
-      formConfig as Test.FormConfig & {
-        fields: Array<Test.FormField & { correct?: string[]; points?: number }>
-      },
-      event.data
+    result.value = await $fetch<EvaluationResult>(
+      `/api/tests/${testId}/evaluate`,
+      {
+        method: 'POST',
+        body: event.data
+      }
     )
 
     toast.add({

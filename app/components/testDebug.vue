@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  state: Record<string, any>
+  state: Record<string, unknown>
 }>()
 </script>
 <template> 

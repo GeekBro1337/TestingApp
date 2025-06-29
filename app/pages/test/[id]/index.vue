@@ -7,7 +7,7 @@ const id = route.params.id as string
 
 const { data: formConfig } = await useFetch<Test.FormConfig>(`/api/tests/${id}`)
 
-const { state, validate, onSubmit, result } = useForm(formConfig.value)
+const { state, validate, onSubmit, result } = useForm(formConfig.value, id)
 </script>
 
 <template>
