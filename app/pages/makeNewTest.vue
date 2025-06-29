@@ -13,10 +13,12 @@
       <UInput v-model="field.name" label="Name" />
       <UInput v-model="field.label" label="Label" />
       <UInput v-model="field.question" label="Question" />
-      <USelect
+      <URadioGroup
         v-model="field.type"
-        :options="fieldTypes"
-        label="Type"
+        :items="fieldTypes"
+        legend="Type"
+        orientation="horizontal"
+        class="mb-2"
       />
       <UCheckbox v-model="field.required" label="Required" />
       <UInput v-model.number="field.points" type="number" label="Points" />
@@ -34,10 +36,12 @@
     </div>
 
     <div class="flex gap-2 items-end">
-      <USelect
+      <URadioGroup
         v-model="newFieldType"
-        :options="fieldTypes"
-        label="New Field Type"
+        :items="fieldTypes"
+        legend="New Field Type"
+        orientation="horizontal"
+        class="mb-2"
       />
       <UButton color="primary" @click="addField">Add field</UButton>
       <UButton color="primary" @click="submit">Submit</UButton>
