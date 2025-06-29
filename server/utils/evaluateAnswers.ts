@@ -1,4 +1,3 @@
-// TODO: Transfer to server side
 export interface EvaluationResult {
   total: number
   max: number
@@ -7,7 +6,12 @@ export interface EvaluationResult {
 /**
  * Compare user answers with correct answers and calculate score
  */
-export function evaluateAnswers(config: Test.FormConfig & { fields: Array<Test.FormField & { correct?: string[]; points?: number }> }, state: Test.FormState): EvaluationResult {
+export function evaluateAnswers(
+  config: Test.FormConfig & {
+    fields: Array<Test.FormField & { correct?: string[]; points?: number }>
+  },
+  state: Test.FormState
+): EvaluationResult {
   let total = 0
   let max = 0
 
@@ -20,7 +24,9 @@ export function evaluateAnswers(config: Test.FormConfig & { fields: Array<Test.F
     if (!points) continue
 
     if (Array.isArray(value)) {
-      const isCorrect = correct.every((c) => value.includes(c)) && value.length === correct.length
+      const isCorrect =
+        correct.every((c) => (value as string[]).includes(c)) &&
+        (value as string[]).length === correct.length
       if (isCorrect) total += points
     } else if (typeof value === 'string') {
       if (correct.includes(value)) total += points
