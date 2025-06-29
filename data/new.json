@@ -1,5 +1,5 @@
 {
-  "fileName": "test32532.json",
+  "fileName": "new.json",
   "title": "Test",
   "description": "Please fill out all required fields to create your account.",
   "fields": [
@@ -7,77 +7,150 @@
       "id": 1,
       "name": "interests",
       "label": "Interests",
-      "type": "radioButton",
       "question": "Interests",
+      "type": "radioButton",
       "required": false,
       "points": 1,
-      "correct": ["tech"],
+      "correct": [
+        "tech"
+      ],
       "options": [
-        { "label": "Technology", "value": "tech" },
-        { "label": "Sports", "value": "sports" },
-        { "label": "Music", "value": "music" },
-        { "label": "Travel", "value": "travel" },
-        { "label": "Cooking", "value": "cooking" },
-        { "label": "Reading", "value": "reading" }
+        {
+          "label": "Technology",
+          "value": "tech"
+        },
+        {
+          "label": "Sports",
+          "value": "sports"
+        },
+        {
+          "label": "Music",
+          "value": "music"
+        },
+        {
+          "label": "Travel",
+          "value": "travel"
+        },
+        {
+          "label": "Cooking",
+          "value": "cooking"
+        },
+        {
+          "label": "Reading book 2",
+          "value": "reading"
+        }
       ]
     },
     {
       "id": 2,
       "name": "newsletter",
       "label": "Subscribe to Newsletter",
-      "type": "checkboxGroup",
       "question": "Subscribe to Newsletter",
+      "type": "checkboxGroup",
       "required": false,
       "points": 2,
-      "correct": ["dfs43", "dfs16"],
+      "correct": [
+        "dfs43",
+        "dfs16"
+      ],
       "options": [
-        { "label": "some q", "value": "dfs43" },
-        { "label": "some q2", "value": "dfs62" },
-        { "label": "some q3", "value": "dfs16" }
+        {
+          "label": "some q",
+          "value": "dfs43"
+        },
+        {
+          "label": "some q2",
+          "value": "dfs62"
+        },
+        {
+          "label": "some q3",
+          "value": "dfs16"
+        }
       ]
     },
     {
       "id": 3,
       "name": "quizQuestion1",
       "label": "What is your preferred programming language?",
-      "type": "checkboxGroup",
       "question": "What is your preferred programming language?",
+      "type": "checkboxGroup",
       "required": true,
       "points": 3,
-      "correct": ["js"],
+      "correct": [
+        "js"
+      ],
       "options": [
-        { "label": "JavaScript/TypeScript", "value": "js" },
-        { "label": "Python", "value": "python" },
-        { "label": "Java", "value": "java" },
-        { "label": "C++", "value": "cpp" },
-        { "label": "Go", "value": "go" },
-        { "label": "Rust", "value": "rust" }
+        {
+          "label": "JavaScript/TypeScript",
+          "value": "js"
+        },
+        {
+          "label": "Python",
+          "value": "python"
+        },
+        {
+          "label": "Java",
+          "value": "java"
+        },
+        {
+          "label": "C++",
+          "value": "cpp"
+        },
+        {
+          "label": "Go",
+          "value": "go"
+        },
+        {
+          "label": "Rust",
+          "value": "rust"
+        }
       ]
     },
     {
       "id": 4,
       "name": "quizQuestion2",
       "label": "Which development methodologies do you use?",
-      "type": "checkboxGroup",
       "question": "Which development methodologies do you use?",
+      "type": "checkboxGroup",
       "required": false,
       "points": 2,
-      "correct": ["agile", "devops"],
+      "correct": [
+        "agile",
+        "devops"
+      ],
       "options": [
-        { "label": "Agile/Scrum", "value": "agile" },
-        { "label": "Waterfall", "value": "waterfall" },
-        { "label": "Kanban", "value": "kanban" },
-        { "label": "DevOps", "value": "devops" },
-        { "label": "Test-Driven Development", "value": "tdd" },
-        { "label": "Behavior-Driven Development", "value": "bdd" }
+        {
+          "label": "Agile/Scrum",
+          "value": "agile"
+        },
+        {
+          "label": "Waterfall",
+          "value": "waterfall"
+        },
+        {
+          "label": "Kanban",
+          "value": "kanban"
+        },
+        {
+          "label": "DevOps",
+          "value": "devops"
+        },
+        {
+          "label": "Test-Driven Development",
+          "value": "tdd"
+        },
+        {
+          "label": "Behavior-Driven Development",
+          "value": "bdd"
+        }
       ]
     },
     {
       "id": 5,
       "name": "feedback",
       "label": "feedback",
-      "type": "textarea",
       "question": "Enter you feedback ",
+      "type": "textarea",
       "required": false,
       "points": 0,
       "correct": []
