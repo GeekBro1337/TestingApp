@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
+import { useEditStore } from "~/stores/edit";
 
 const user = useUserStore();
+const edit = useEditStore();
 const route = useRoute()
 const id = route.params.id as string
 
@@ -17,8 +19,13 @@ const { state, validate, onSubmit, result } = useForm(formConfig.value, id)
         {{ formConfig.title }}
       </h1>
       <p class="text-gray-600 dark:text-gray-400">
-        {{ formConfig.description }}  
+        {{ formConfig.description }}
       </p>
+      <div v-if="edit.isEditMode" class="mt-4 text-right">
+        <NuxtLink :to="`/test/${id}/edit`">
+          <UButton size="sm" color="primary" icon="i-lucide-pen">Edit</UButton>
+        </NuxtLink>
+      </div>
     </div>
 
     <UForm :validate="validate" :state="state" class="space-y-6" @submit="onSubmit">
