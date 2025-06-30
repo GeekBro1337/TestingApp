@@ -7,7 +7,7 @@ interface FormField {
   id: number
   name: string
   label: string
-  type: 'text'| 'number' | 'textarea' | 'checkboxGroup' | 'radioButton'
+  type: 'quiz' | 'flag' | 'data' | 'input' | 'text'
   question: string
   placeholder?: string
   required: boolean
@@ -41,7 +41,7 @@ const formConfig: FormConfig = {
       id: 1,
       name: 'interests',
       label: 'Interests',
-      type: 'radioButton',
+      type: 'flag',
       question: 'Interests',
       required: false,
       options: [
@@ -57,7 +57,7 @@ const formConfig: FormConfig = {
       id: 2,
       name: 'newsletter',
       label: 'Subscribe to Newsletter',
-      type: 'checkboxGroup',
+      type: 'quiz',
       question: 'Subscribe to Newsletter',
       required: false,
       options: [
@@ -71,7 +71,7 @@ const formConfig: FormConfig = {
       id: 3,
       name: 'quizQuestion1',
       label: 'What is your preferred programming language?',
-      type: 'checkboxGroup',
+      type: 'quiz',
       question: 'What is your preferred programming language?',
       required: true,
       options: [
@@ -87,7 +87,7 @@ const formConfig: FormConfig = {
       id: 4,
       name: 'quizQuestion2',
       label: 'Which development methodologies do you use?',
-      type: 'checkboxGroup',
+      type: 'quiz',
       question: 'Which development methodologies do you use?',
       required: false,
       options: [
@@ -103,7 +103,7 @@ const formConfig: FormConfig = {
       id: 5,
       name: 'feedback',
       label: 'feedback',
-      type: 'textarea',
+      type: 'text',
       question: 'Enter you feedback ',
       required: false,
     },
@@ -114,7 +114,7 @@ const formConfig: FormConfig = {
 // Create reactive state from form config
 const initialState: FormState = {}
 formConfig.fields.forEach(field => {
-  if (field.type === 'checkboxGroup') {
+  if (field.type === 'quiz') {
     initialState[field.name] = []
   } else {
     initialState[field.name] = undefined
@@ -222,24 +222,30 @@ const renderField = (field: FormField) => {
   
   switch (field.type) {
     case 'text':
-    case 'number':
       return h(UInput, {
         ...commonProps,
-        type: field.type,
-        modelValue: state[field.name] as string | number,
-        'onUpdate:modelValue': (value: string | number) => state[field.name] = value
-      })
-    
-    case 'textarea':
-      return h(UTextarea, {
-        ...commonProps,
-        rows: 4,
+        type: 'text',
         modelValue: state[field.name] as string,
-        'onUpdate:modelValue': (value: string) => state[field.name] = value,
-        size: 'lg',
+        'onUpdate:modelValue': (value: string) => state[field.name] = value
+      })
+
+    case 'input':
+      return h(UInput, {
+        ...commonProps,
+        type: 'number',
+        modelValue: state[field.name] as number,
+        'onUpdate:modelValue': (value: number) => state[field.name] = value
+      })
+
+    case 'data':
+      return h(UInput, {
+        ...commonProps,
+        type: 'date',
+        modelValue: state[field.name] as string,
+        'onUpdate:modelValue': (value: string) => state[field.name] = value
       })
     
-    case 'radioButton':
+    case 'flag':
       return h(URadioGroup, {
         label: field.label,
         size:"xl",
@@ -252,7 +258,7 @@ const renderField = (field: FormField) => {
         })) || []
       })
     
-    case 'checkboxGroup':
+    case 'quiz':
       // Use UCheckboxGroup with card variant
       return h(UCheckboxGroup, {
         color: 'primary',

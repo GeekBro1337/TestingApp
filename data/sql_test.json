@@ -7,7 +7,7 @@
       "name": "q1",
       "label": "What does SQL stand for?",
       "question": "What does SQL stand for?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -33,7 +33,7 @@
       "name": "q2",
       "label": "Keyword for retrieving data",
       "question": "Which SQL keyword is used to retrieve data from a table?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -59,7 +59,7 @@
       "name": "q3",
       "label": "Filter rows",
       "question": "Which clause is used to filter rows returned by a query?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -85,7 +85,7 @@
       "name": "q4",
       "label": "Update statement",
       "question": "Which SQL statement is used to modify existing rows?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -111,7 +111,7 @@
       "name": "q5",
       "label": "Aggregate functions",
       "question": "Choose all SQL aggregate functions:",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 2,
       "correct": [
@@ -143,7 +143,7 @@
       "name": "q6",
       "label": "Primary key uniqueness",
       "question": "True or False: A PRIMARY KEY must contain unique, non-null values.",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -165,7 +165,7 @@
       "name": "q7",
       "label": "DDL commands",
       "question": "Select all Data Definition Language (DDL) commands:",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 2,
       "correct": [
@@ -197,7 +197,7 @@
       "name": "q8",
       "label": "INNER JOIN description",
       "question": "Describe what an INNER JOIN does:",
-      "type": "textarea",
+      "type": "text",
       "required": false,
       "points": 2,
       "correct": []
@@ -207,7 +207,7 @@
       "name": "q9",
       "label": "Column alias keyword",
       "question": "Which keyword assigns a column alias in SQL?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -233,7 +233,7 @@
       "name": "q10",
       "label": "Set operators",
       "question": "Pick the valid SQL set operators:",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 2,
       "correct": [
@@ -265,7 +265,7 @@
       "name": "q11",
       "label": "Order results",
       "question": "Which clause is used to sort query results?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -291,7 +291,7 @@
       "name": "q12",
       "label": "Wildcard character",
       "question": "In SQL, which wildcard represents ANY sequence of characters?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -317,7 +317,7 @@
       "name": "q13",
       "label": "NOT NULL constraint",
       "question": "Explain the NOT NULL constraint purpose:",
-      "type": "textarea",
+      "type": "text",
       "required": false,
       "points": 2,
       "correct": []
@@ -327,7 +327,7 @@
       "name": "q14",
       "label": "Foreign key requirement",
       "question": "A FOREIGN KEY in one table must reference a ____ in another table.",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -353,7 +353,7 @@
       "name": "q15",
       "label": "Transaction control",
       "question": "Choose all Transaction Control Language (TCL) commands:",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 2,
       "correct": [
@@ -385,7 +385,7 @@
       "name": "q16",
       "label": "GROUP BY vs HAVING",
       "question": "Write the difference between GROUP BY and HAVING clauses:",
-      "type": "textarea",
+      "type": "text",
       "required": false,
       "points": 2,
       "correct": []
@@ -395,7 +395,7 @@
       "name": "q17",
       "label": "LIMIT support",
       "question": "Which databases support the LIMIT/OFFSET syntax? (Choose all that apply)",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 2,
       "correct": [
@@ -427,7 +427,7 @@
       "name": "q18",
       "label": "Default sort direction",
       "question": "What is the default sorting order if ASC/DESC is not specified?",
-      "type": "radioButton",
+      "type": "flag",
       "required": true,
       "points": 1,
       "correct": [
@@ -449,7 +449,7 @@
       "name": "q19",
       "label": "DELETE vs TRUNCATE",
       "question": "Briefly explain the difference between DELETE and TRUNCATE:",
-      "type": "textarea",
+      "type": "text",
       "required": false,
       "points": 2,
       "correct": []
@@ -459,7 +459,7 @@
       "name": "q20",
       "label": "Subquery types",
       "question": "Select the valid subquery placement(s):",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 2,
       "correct": [

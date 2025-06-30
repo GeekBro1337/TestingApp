@@ -94,6 +94,7 @@ const navItems = [
             >
             newTest
             </UButton>
+            <clock/>
           </div>
         </div>
     </header>

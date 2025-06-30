@@ -119,14 +119,14 @@ interface Option {
 }
 
 const fieldTypes = [
+  { label: "Quiz", value: "quiz" },
+  { label: "Flag", value: "flag" },
+  { label: "Data", value: "data" },
+  { label: "Input", value: "input" },
   { label: "Text", value: "text" },
-  { label: "Number", value: "number" },
-  { label: "Textarea", value: "textarea" },
-  { label: "Radio buttons", value: "radioButton" },
-  { label: "Checkbox group", value: "checkboxGroup" },
 ] as const;
 
-type FieldType = (typeof fieldTypes)[number]["value"]; // 'text' | 'number' | ...
+type FieldType = (typeof fieldTypes)[number]["value"]; // 'quiz' | 'flag' | ...
 
 interface FieldForm {
   id: number;
@@ -206,7 +206,7 @@ const preview = computed(() => ({
       .filter(Boolean),
     placeholder: f.placeholder || undefined,
     options: f.options.length ? f.options : undefined,
-    multiple: f.type === "checkboxGroup",
+    multiple: f.type === "quiz",
   })),
 }));
 
