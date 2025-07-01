@@ -1,14 +1,10 @@
 <template>
   <div class="p-4 space-y-6">
     <!-- Заголовок теста -->
-    <UInput
-      v-model="test.fileName"
-      disabled
-    />
+    <UInput v-model="test.fileName" disabled />
     <UInput v-model="test.title" label="Title" />
     <UTextarea v-model="test.description" label="Description" />
 
-    <!-- Список полей -->
     <div
       v-for="(field, index) in test.fields"
       :key="field.id"
@@ -16,97 +12,24 @@
     >
       <div class="flex justify-between items-center">
         <span class="font-bold">Field {{ index + 1 }}</span>
-        <UButton
-          size="xs"
-          color="red"
-          icon="i-lucide-x"
-          @click="removeField(index)"
-        />
+        <UButton size="xs" color="red" icon="i-lucide-x" @click="removeField(index)" />
       </div>
 
-      <UInput v-model.number="field.id" type="number" label="Id" disabled />
-      <UInput v-model="field.name" label="Name" />
-      <UInput v-model="field.label" label="Label" />
-      <UInput v-model="field.question" label="Question" />
-
-      <!-- Радиокнопки выбора типа -->
-      <label class="font-bold block">Type</label>
-      <div class="flex flex-wrap gap-4">
-        <label
-          v-for="opt in fieldTypes"
-          :key="`${field.id}-${opt.value}`"
-          class="inline-flex items-center gap-1 cursor-pointer"
-        >
-          <input
-            type="radio"
-            :value="opt.value"
-            v-model="field.type"
-            class="h-4 w-4 accent-blue-600"
-          />
-          <span>{{ opt.label }}</span>
-        </label>
-      </div>
-
-      <UCheckbox v-model="field.required" label="Required" />
-      <UInput v-model.number="field.points" type="number" label="Points" />
-      <UInput v-model="field.placeholder" label="Placeholder" />
-      <UInput v-model="field.correctCsv" label="Correct (comma separated)" />
-
-      <!-- Опции -->
-      <div class="space-y-2">
-        <div
-          v-for="(opt, idx) in field.options"
-          :key="idx"
-          class="flex gap-2 items-center"
-        >
-          <UInput v-model="opt.label" label="Option Label" class="flex-1" />
-          <UInput v-model="opt.value" label="Option Value" class="flex-1" />
-          <UButton
-            size="xs"
-            color="red"
-            icon="i-lucide-x"
-            @click="removeOption(field, idx)"
-          />
-        </div>
-        <UButton size="xs" color="primary" @click="addOption(field)"
-          >Add option</UButton
-        >
-      </div>
+      <component :is="getEditComponent(field.type)" v-model="test.fields[index]" />
     </div>
 
-    <!-- Добавление поля -->
     <div class="space-y-2">
       <label class="font-bold block">New Field Type</label>
-      <div class="flex flex-wrap gap-4">
-        <label
-          v-for="opt in fieldTypes"
-          :key="'new-' + opt.value"
-          class="inline-flex items-center gap-1 cursor-pointer"
-        >
-          <input
-            type="radio"
-            :value="opt.value"
-            v-model="newFieldType"
-            class="h-4 w-4 accent-blue-600"
-          />
-          <span>{{ opt.label }}</span>
-        </label>
-      </div>
-
+      <USelect v-model="newFieldType" :options="fieldTypes" option-attribute="label" value-attribute="value" />
       <div class="flex gap-2 pt-2">
         <UButton color="primary" @click="addField">Add field</UButton>
         <UButton color="primary" @click="submit">Submit</UButton>
       </div>
     </div>
 
-    <!-- Превью JSON -->
-    <pre class="bg-neutral-200 p-2 text-xs overflow-auto"
-      >{{ JSON.stringify(preview, null, 2) }}
-</pre
-    >
+    <pre class="bg-neutral-200 p-2 text-xs overflow-auto">{{ JSON.stringify(preview, null, 2) }}</pre>
   </div>
 </template>
-
 <script lang="ts" setup>
 import { reactive, computed, ref } from "vue";
 import { useToast } from "#imports";
@@ -143,6 +66,15 @@ interface FieldForm {
   correctCsv: string;
   options: Option[];
 }
+
+const getEditComponent = (type: FieldType) =>
+  ({
+    quiz: 'FieldsQuizEdit',
+    flag: 'FieldsFlagEdit',
+    data: 'FieldsDataEdit',
+    input: 'FieldsInputEdit',
+    text: 'FieldsTextEdit',
+  }[type]);
 
 /* ---------- Состояние ---------- */
 const newFieldType = ref<FieldType>("text");
@@ -200,13 +132,6 @@ function removeField(index: number) {
   test.fields.splice(index, 1);
 }
 
-function addOption(field: FieldForm) {
-  field.options.push({ label: "", value: "" });
-}
-
-function removeOption(field: FieldForm, idx: number) {
-  field.options.splice(idx, 1);
-}
 
 /* ---------- Превью ---------- */
 const preview = computed(() => ({
