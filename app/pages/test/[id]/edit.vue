@@ -20,7 +20,7 @@
 
     <div class="space-y-2">
       <label class="font-bold block">New Field Type</label>
-      <USelect v-model="newFieldType" :options="fieldTypes" option-attribute="label" value-attribute="value" />
+      <USelect v-model="newFieldType" :options="fieldTypes" />
       <div class="flex gap-2 pt-2">
         <UButton color="primary" @click="addField">Add field</UButton>
         <UButton color="primary" @click="submit">Submit</UButton>

@@ -56,8 +56,6 @@ const fieldTypes = [
     <USelect
       v-model="local.type"
       :options="fieldTypes"
-      option-attribute="label"
-      value-attribute="value"
       label="Type"
     />
     <UCheckbox v-model="local.required" label="Required" />
