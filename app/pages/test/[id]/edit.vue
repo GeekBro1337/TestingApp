@@ -24,10 +24,8 @@
         />
       </div>
 
-      <UInput v-model.number="field.id" type="number" label="Id" disabled />
-      <UInput v-model="field.name" label="Name" />
-      <UInput v-model="field.label" label="Label" />
-      <UInput v-model="field.question" label="Question" />
+      <!-- Поля для редактирования конкретного типа -->
+      <component :is="renderFieldEdit(field)" />
 
       <!-- Радиокнопки выбора типа -->
       <label class="font-bold block">Type</label>
@@ -47,31 +45,6 @@
         </label>
       </div>
 
-      <UCheckbox v-model="field.required" label="Required" />
-      <UInput v-model.number="field.points" type="number" label="Points" />
-      <UInput v-model="field.placeholder" label="Placeholder" />
-      <UInput v-model="field.correctCsv" label="Correct (comma separated)" />
-
-      <!-- Опции -->
-      <div class="space-y-2">
-        <div
-          v-for="(opt, idx) in field.options"
-          :key="idx"
-          class="flex gap-2 items-center"
-        >
-          <UInput v-model="opt.label" label="Option Label" class="flex-1" />
-          <UInput v-model="opt.value" label="Option Value" class="flex-1" />
-          <UButton
-            size="xs"
-            color="red"
-            icon="i-lucide-x"
-            @click="removeOption(field, idx)"
-          />
-        </div>
-        <UButton size="xs" color="primary" @click="addOption(field)"
-          >Add option</UButton
-        >
-      </div>
     </div>
 
     <!-- Добавление поля -->
@@ -110,6 +83,7 @@
 <script lang="ts" setup>
 import { reactive, computed, ref } from "vue";
 import { useToast } from "#imports";
+import { renderFieldEdit } from "../../utils/renderFieldEdit";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const id = route.params.id as string;
@@ -122,14 +96,14 @@ interface Option {
 }
 
 const fieldTypes = [
+  { label: "Quiz", value: "quiz" },
+  { label: "Flag", value: "flag" },
+  { label: "Data", value: "data" },
+  { label: "Input", value: "input" },
   { label: "Text", value: "text" },
-  { label: "Number", value: "number" },
-  { label: "Textarea", value: "textarea" },
-  { label: "Radio buttons", value: "radioButton" },
-  { label: "Checkbox group", value: "checkboxGroup" },
 ] as const;
 
-type FieldType = (typeof fieldTypes)[number]["value"]; // 'text' | 'number' | ...
+type FieldType = (typeof fieldTypes)[number]["value"]; // 'quiz' | 'flag' | ...
 
 interface FieldForm {
   id: number;
@@ -200,13 +174,6 @@ function removeField(index: number) {
   test.fields.splice(index, 1);
 }
 
-function addOption(field: FieldForm) {
-  field.options.push({ label: "", value: "" });
-}
-
-function removeOption(field: FieldForm, idx: number) {
-  field.options.splice(idx, 1);
-}
 
 /* ---------- Превью ---------- */
 const preview = computed(() => ({
@@ -227,7 +194,7 @@ const preview = computed(() => ({
       .filter(Boolean),
     placeholder: f.placeholder || undefined,
     options: f.options.length ? f.options : undefined,
-    multiple: f.type === "checkboxGroup",
+    multiple: f.type === "quiz",
   })),
 }));
 

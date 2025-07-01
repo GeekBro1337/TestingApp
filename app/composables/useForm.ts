@@ -11,7 +11,7 @@ export function useForm(formConfig: Test.FormConfig, testId: string) {
 
   // TODO: Add types
   formConfig.fields.forEach((field) => {
-    if (field.type === 'checkboxGroup') {
+    if (field.type === 'quiz') {
       initialState[field.name] = []
     } else {
       initialState[field.name] = undefined

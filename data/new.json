@@ -8,7 +8,7 @@
       "name": "interests",
       "label": "Interests",
       "question": "Interests",
-      "type": "radioButton",
+      "type": "flag",
       "required": false,
       "points": 1,
       "correct": [
@@ -46,7 +46,7 @@
       "name": "newsletter",
       "label": "Subscribe to Newsletter",
       "question": "Subscribe to Newsletter",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": false,
       "points": 2,
       "correct": [
@@ -73,7 +73,7 @@
       "name": "quizQuestion1",
       "label": "What is your preferred programming language?",
       "question": "What is your preferred programming language?",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": true,
       "points": 3,
       "correct": [
@@ -111,7 +111,7 @@
       "name": "quizQuestion2",
       "label": "Which development methodologies do you use?",
       "question": "Which development methodologies do you use?",
-      "type": "checkboxGroup",
+      "type": "quiz",
       "required": false,
       "points": 2,
       "correct": [
@@ -150,7 +150,7 @@
       "name": "feedback",
       "label": "feedback",
       "question": "Enter you feedback ",
-      "type": "textarea",
+      "type": "text",
       "required": false,
       "points": 0,
       "correct": []

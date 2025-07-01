@@ -18,7 +18,7 @@ declare global {
       id: number;
       name: string;
       label: string;
-      type: "text" | "number" | "textarea" | "checkboxGroup";
+      type: "quiz" | "flag" | "data" | "input" | "text";
       placeholder?: string;
       required: boolean;
       validation?: {
