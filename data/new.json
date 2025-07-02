@@ -1,0 +1,169 @@
+{
+  "fileName": "new.json",
+  "title": "Test132",
+  "description": "Please fill out all required fields to create your account.",
+  "fields": [
+    {
+      "id": 1,
+      "name": "interests",
+      "label": "Interests",
+      "question": "Interests",
+      "type": "quiz",
+      "required": false,
+      "points": 2,
+      "correct": [
+        "tech"
+      ],
+      "options": [
+        {
+          "label": "Technology",
+          "value": "tech"
+        },
+        {
+          "label": "Sports",
+          "value": "sports"
+        },
+        {
+          "label": "Music",
+          "value": "music"
+        },
+        {
+          "label": "Travel",
+          "value": "travel"
+        },
+        {
+          "label": "Cooking",
+          "value": "cooking"
+        },
+        {
+          "label": "Reading",
+          "value": "reading"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "newsletter",
+      "label": "Subscribe to Newsletter",
+      "question": "Subscribe to Newsletter",
+      "type": "quiz",
+      "required": false,
+      "points": 2,
+      "correct": [
+        "dfs43",
+        "dfs16"
+      ],
+      "options": [
+        {
+          "label": "some q",
+          "value": "dfs43"
+        },
+        {
+          "label": "some q2",
+          "value": "dfs62"
+        },
+        {
+          "label": "some q3",
+          "value": "dfs16"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "quizQuestion1",
+      "label": "What is your preferred programming language?",
+      "question": "What is your preferred programming language?",
+      "type": "quiz",
+      "required": true,
+      "points": 3,
+      "correct": [
+        "js"
+      ],
+      "options": [
+        {
+          "label": "JavaScript/TypeScript",
+          "value": "js"
+        },
+        {
+          "label": "Python",
+          "value": "python"
+        },
+        {
+          "label": "Java",
+          "value": "java"
+        },
+        {
+          "label": "C++",
+          "value": "cpp"
+        },
+        {
+          "label": "Go",
+          "value": "go"
+        },
+        {
+          "label": "Rust",
+          "value": "rust"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "quizQuestion2",
+      "label": "Which development methodologies do you use?",
+      "question": "Which development methodologies do you use?",
+      "type": "quiz",
+      "required": false,
+      "points": 2,
+      "correct": [
+        "agile",
+        "devops"
+      ],
+      "options": [
+        {
+          "label": "Agile/Scrum",
+          "value": "agile"
+        },
+        {
+          "label": "Waterfall",
+          "value": "waterfall"
+        },
+        {
+          "label": "Kanban",
+          "value": "kanban"
+        },
+        {
+          "label": "DevOps",
+          "value": "devops"
+        },
+        {
+          "label": "Test-Driven Development",
+          "value": "tdd"
+        },
+        {
+          "label": "Behavior-Driven Development",
+          "value": "bdd"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "feedback",
+      "label": "feedback",
+      "question": "Enter you feedback ",
+      "type": "text",
+      "required": false,
+      "points": 0,
+      "correct": []
+    },
+    {
+      "id": 6,
+      "name": "",
+      "label": "",
+      "question": "",
+      "type": "input",
+      "required": false,
+      "points": 0,
+      "correct": []
+    }
+  ]
+}

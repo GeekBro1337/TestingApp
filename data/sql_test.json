@@ -1,0 +1,490 @@
+{
+  "fileName": "sql_test.json",
+  "title": "SQL Fundamentals Test",
+  "fields": [
+    {
+      "id": 1,
+      "name": "q1",
+      "label": "What does SQL stand for?",
+      "question": "What does SQL stand for?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "structured_query_language"
+      ],
+      "options": [
+        {
+          "label": "Simple Query List",
+          "value": "simple_query_list"
+        },
+        {
+          "label": "Structured Question Language",
+          "value": "structured_question_language"
+        },
+        {
+          "label": "Structured Query Language",
+          "value": "structured_query_language"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "q2",
+      "label": "Keyword for retrieving data",
+      "question": "Which SQL keyword is used to retrieve data from a table?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "select"
+      ],
+      "options": [
+        {
+          "label": "GET",
+          "value": "get"
+        },
+        {
+          "label": "SELECT",
+          "value": "select"
+        },
+        {
+          "label": "FETCH",
+          "value": "fetch"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "q3",
+      "label": "Filter rows",
+      "question": "Which clause is used to filter rows returned by a query?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "where"
+      ],
+      "options": [
+        {
+          "label": "HAVING",
+          "value": "having"
+        },
+        {
+          "label": "WHERE",
+          "value": "where"
+        },
+        {
+          "label": "ORDER BY",
+          "value": "order_by"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "q4",
+      "label": "Update statement",
+      "question": "Which SQL statement is used to modify existing rows?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "update"
+      ],
+      "options": [
+        {
+          "label": "UPDATE",
+          "value": "update"
+        },
+        {
+          "label": "ALTER",
+          "value": "alter"
+        },
+        {
+          "label": "MODIFY",
+          "value": "modify"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "q5",
+      "label": "Aggregate functions",
+      "question": "Choose all SQL aggregate functions:",
+      "type": "quiz",
+      "required": true,
+      "points": 2,
+      "correct": [
+        "count",
+        "avg",
+        "sum"
+      ],
+      "options": [
+        {
+          "label": "COUNT()",
+          "value": "count"
+        },
+        {
+          "label": "AVG()",
+          "value": "avg"
+        },
+        {
+          "label": "SUM()",
+          "value": "sum"
+        },
+        {
+          "label": "UNION",
+          "value": "union"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "q6",
+      "label": "Primary key uniqueness",
+      "question": "True or False: A PRIMARY KEY must contain unique, non-null values.",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "true"
+      ],
+      "options": [
+        {
+          "label": "True",
+          "value": "true"
+        },
+        {
+          "label": "False",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "q7",
+      "label": "DDL commands",
+      "question": "Select all Data Definition Language (DDL) commands:",
+      "type": "quiz",
+      "required": true,
+      "points": 2,
+      "correct": [
+        "create",
+        "alter",
+        "drop"
+      ],
+      "options": [
+        {
+          "label": "CREATE",
+          "value": "create"
+        },
+        {
+          "label": "ALTER",
+          "value": "alter"
+        },
+        {
+          "label": "INSERT",
+          "value": "insert"
+        },
+        {
+          "label": "DROP",
+          "value": "drop"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "q8",
+      "label": "INNER JOIN description",
+      "question": "Describe what an INNER JOIN does:",
+      "type": "text",
+      "required": false,
+      "points": 2,
+      "correct": []
+    },
+    {
+      "id": 9,
+      "name": "q9",
+      "label": "Column alias keyword",
+      "question": "Which keyword assigns a column alias in SQL?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "as"
+      ],
+      "options": [
+        {
+          "label": "LIKE",
+          "value": "like"
+        },
+        {
+          "label": "AS",
+          "value": "as"
+        },
+        {
+          "label": "ALIAS",
+          "value": "alias"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "q10",
+      "label": "Set operators",
+      "question": "Pick the valid SQL set operators:",
+      "type": "quiz",
+      "required": true,
+      "points": 2,
+      "correct": [
+        "union",
+        "intersect",
+        "minus"
+      ],
+      "options": [
+        {
+          "label": "UNION",
+          "value": "union"
+        },
+        {
+          "label": "INTERSECT",
+          "value": "intersect"
+        },
+        {
+          "label": "MINUS/EXCEPT",
+          "value": "minus"
+        },
+        {
+          "label": "CROSS",
+          "value": "cross"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "q11",
+      "label": "Order results",
+      "question": "Which clause is used to sort query results?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "order_by"
+      ],
+      "options": [
+        {
+          "label": "GROUP BY",
+          "value": "group_by"
+        },
+        {
+          "label": "ORDER BY",
+          "value": "order_by"
+        },
+        {
+          "label": "SORT BY",
+          "value": "sort_by"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "q12",
+      "label": "Wildcard character",
+      "question": "In SQL, which wildcard represents ANY sequence of characters?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "percent"
+      ],
+      "options": [
+        {
+          "label": "% (percent)",
+          "value": "percent"
+        },
+        {
+          "label": "_ (underscore)",
+          "value": "underscore"
+        },
+        {
+          "label": "* (asterisk)",
+          "value": "asterisk"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "q13",
+      "label": "NOT NULL constraint",
+      "question": "Explain the NOT NULL constraint purpose:",
+      "type": "text",
+      "required": false,
+      "points": 2,
+      "correct": []
+    },
+    {
+      "id": 14,
+      "name": "q14",
+      "label": "Foreign key requirement",
+      "question": "A FOREIGN KEY in one table must reference a ____ in another table.",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "primary_key"
+      ],
+      "options": [
+        {
+          "label": "CHECK constraint",
+          "value": "check"
+        },
+        {
+          "label": "INDEX column",
+          "value": "index"
+        },
+        {
+          "label": "PRIMARY KEY",
+          "value": "primary_key"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "q15",
+      "label": "Transaction control",
+      "question": "Choose all Transaction Control Language (TCL) commands:",
+      "type": "quiz",
+      "required": true,
+      "points": 2,
+      "correct": [
+        "commit",
+        "rollback",
+        "savepoint"
+      ],
+      "options": [
+        {
+          "label": "COMMIT",
+          "value": "commit"
+        },
+        {
+          "label": "ROLLBACK",
+          "value": "rollback"
+        },
+        {
+          "label": "SAVEPOINT",
+          "value": "savepoint"
+        },
+        {
+          "label": "ALTER",
+          "value": "alter"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "q16",
+      "label": "GROUP BY vs HAVING",
+      "question": "Write the difference between GROUP BY and HAVING clauses:",
+      "type": "text",
+      "required": false,
+      "points": 2,
+      "correct": []
+    },
+    {
+      "id": 17,
+      "name": "q17",
+      "label": "LIMIT support",
+      "question": "Which databases support the LIMIT/OFFSET syntax? (Choose all that apply)",
+      "type": "quiz",
+      "required": true,
+      "points": 2,
+      "correct": [
+        "mysql",
+        "postgresql",
+        "sqlite"
+      ],
+      "options": [
+        {
+          "label": "MySQL",
+          "value": "mysql"
+        },
+        {
+          "label": "PostgreSQL",
+          "value": "postgresql"
+        },
+        {
+          "label": "SQLite",
+          "value": "sqlite"
+        },
+        {
+          "label": "Microsoft SQL Server",
+          "value": "sqlserver"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "q18",
+      "label": "Default sort direction",
+      "question": "What is the default sorting order if ASC/DESC is not specified?",
+      "type": "flag",
+      "required": true,
+      "points": 1,
+      "correct": [
+        "ascending"
+      ],
+      "options": [
+        {
+          "label": "Ascending",
+          "value": "ascending"
+        },
+        {
+          "label": "Descending",
+          "value": "descending"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "q19",
+      "label": "DELETE vs TRUNCATE",
+      "question": "Briefly explain the difference between DELETE and TRUNCATE:",
+      "type": "text",
+      "required": false,
+      "points": 2,
+      "correct": []
+    },
+    {
+      "id": 20,
+      "name": "q20",
+      "label": "Subquery types",
+      "question": "Select the valid subquery placement(s):",
+      "type": "quiz",
+      "required": true,
+      "points": 2,
+      "correct": [
+        "select_list",
+        "from_clause",
+        "where_clause"
+      ],
+      "options": [
+        {
+          "label": "In the SELECT list",
+          "value": "select_list"
+        },
+        {
+          "label": "In the FROM clause",
+          "value": "from_clause"
+        },
+        {
+          "label": "In the WHERE clause",
+          "value": "where_clause"
+        },
+        {
+          "label": "In the ORDER BY clause",
+          "value": "order_by_clause"
+        }
+      ]
+    }
+  ]
+}

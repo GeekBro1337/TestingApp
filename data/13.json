@@ -1,0 +1,20 @@
+{
+  "fileName": "13.json",
+  "title": "Тест на инженера",
+  "description": "Протестируйся",
+  "fields": [
+    {
+      "id": 1,
+      "name": "Первый вопрос",
+      "label": "Вопрос",
+      "question": "Инженер?",
+      "type": "input",
+      "required": true,
+      "points": 10000000000,
+      "correct": [
+        "Да"
+      ],
+      "placeholder": "Ответ"
+    }
+  ]
+}
