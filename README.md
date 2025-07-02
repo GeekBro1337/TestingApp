@@ -178,6 +178,25 @@ GET /api/tests/juniour
 
 Удаляет тест (в разработке)
 
+#### GET `/api/notifications`
+
+Возвращает уведомления пользователя. Требуется заголовок
+`Authorization: Bearer <token>`.
+
+**Пример ответа:**
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Напоминание",
+    "username": "Alex",
+    "message": "Проверь отчёт",
+    "scheduledAt": "2025-07-02T12:30:00Z"
+  }
+]
+```
+
 ### Composables (`composables/Questions.ts`)
 
 #### `getTest(id: string)`
@@ -257,6 +276,9 @@ cd testingapp-master
 npm install
 # или
 pnpm install
+
+# Запуск базы данных
+docker compose up -d
 ```
 
 ### Разработка
