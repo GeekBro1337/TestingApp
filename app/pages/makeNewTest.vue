@@ -1,4 +1,5 @@
 <template>
+  <UContextMenu :items="items">
   <div class="p-4 space-y-6">
     <!-- Заголовок теста -->
     <UInput
@@ -30,28 +31,34 @@
       <UInput v-model="field.label" label="Label" />
       <UInput v-model="field.question" label="Question" />
 
-      <!-- Радиокнопки выбора типа -->
       <label class="font-bold block">Type</label>
-      <div class="flex flex-wrap gap-4">
-        <label
-          v-for="opt in fieldTypes"
-          :key="`${field.id}-${opt.value}`"
-          class="inline-flex items-center gap-1 cursor-pointer"
-        >
-          <input
-            type="radio"
-            :value="opt.value"
-            v-model="field.type"
-            class="h-4 w-4 accent-blue-600"
-          />
-          <span>{{ opt.label }}</span>
-        </label>
-      </div>
+      <USelect v-model="field.type" :items="fieldTypes" class="w-48" />
 
       <UCheckbox v-model="field.required" label="Required" />
+      <h3 class="text-primary ">Points</h3>
       <UInput v-model.number="field.points" type="number" label="Points" />
+      <h3 class="text-primary ">Placeholder</h3>
       <UInput v-model="field.placeholder" label="Placeholder" />
-      <UInput v-model="field.correctCsv" label="Correct (comma separated)" />
+      <template v-if="field.type === 'quiz'">
+        <h3 class="text-primary"> Correct</h3>
+        <UInput v-model="field.correctCsv" label="Correct (comma separated)" />
+      </template>
+      <template v-else-if="field.type === 'flag'">
+        <h3 class="text-primary"> Correct</h3>
+        <UCheckbox
+          :model-value="field.correctCsv === 'true'"
+          @update:model-value="val => field.correctCsv = val ? 'true' : 'false'"
+          label="True"
+        />
+      </template>
+      <template v-else-if="field.type === 'data'">
+        <h3 class="text-primary"> Correct</h3>
+        <UInput v-model="field.correctCsv" type="date" />
+      </template>
+      <template v-else-if="field.type === 'text'">
+        <h3 class="text-primary"> Correct</h3>
+        <UInput v-model="field.correctCsv" label="Correct" />
+      </template>
 
       <!-- Опции -->
       <div class="space-y-2">
@@ -106,9 +113,11 @@
 </pre
     >
   </div>
+  </UContextMenu>
 </template>
 
 <script lang="ts" setup>
+import type { ContextMenuItem } from '@nuxt/ui'
 import { reactive, computed, ref } from "vue";
 import { useToast } from "#imports";
 
@@ -118,14 +127,26 @@ interface Option {
   value: string;
 }
 
-const fieldTypes = [
+const items = ref<ContextMenuItem[][]>([
+  [
+    {
+      label: 'Submit',
+      icon: 'i-heroicons-sun-20-solid',
+      onSelect: () => {
+        submit()
+      }
+    }
+  ]
+])
+
+const fieldTypes = ref([
   { label: "Quiz", value: "quiz" },
   { label: "Flag", value: "flag" },
   { label: "Data", value: "data" },
   { label: "Text", value: "text" },
-] as const;
+])
 
-type FieldType = (typeof fieldTypes)[number]["value"]; // 'quiz' | 'flag' | ...
+type FieldType = 'quiz' | 'flag' | 'data' | 'text'
 
 interface FieldForm {
   id: number;
