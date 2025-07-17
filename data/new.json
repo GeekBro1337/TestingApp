@@ -157,13 +157,13 @@
     },
     {
       "id": 6,
-      "name": "",
-      "label": "",
-      "question": "",
-      "type": "input",
+      "name": "terms",
+      "label": "Accept terms?",
+      "question": "Do you accept the terms?",
+      "type": "flag",
       "required": false,
-      "points": 0,
-      "correct": []
+      "points": 1,
+      "correct": ["true"]
     }
   ]
 }

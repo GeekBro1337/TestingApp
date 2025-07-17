@@ -30,6 +30,8 @@ export function evaluateAnswers(
       if (isCorrect) total += points
     } else if (typeof value === 'string') {
       if (correct.includes(value)) total += points
+    } else if (typeof value === 'boolean') {
+      if (String(value) === correct[0]) total += points
     }
   }
 

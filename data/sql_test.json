@@ -7,7 +7,7 @@
       "name": "q1",
       "label": "What does SQL stand for?",
       "question": "What does SQL stand for?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -33,7 +33,7 @@
       "name": "q2",
       "label": "Keyword for retrieving data",
       "question": "Which SQL keyword is used to retrieve data from a table?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -59,7 +59,7 @@
       "name": "q3",
       "label": "Filter rows",
       "question": "Which clause is used to filter rows returned by a query?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -85,7 +85,7 @@
       "name": "q4",
       "label": "Update statement",
       "question": "Which SQL statement is used to modify existing rows?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -143,7 +143,7 @@
       "name": "q6",
       "label": "Primary key uniqueness",
       "question": "True or False: A PRIMARY KEY must contain unique, non-null values.",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -207,7 +207,7 @@
       "name": "q9",
       "label": "Column alias keyword",
       "question": "Which keyword assigns a column alias in SQL?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -265,7 +265,7 @@
       "name": "q11",
       "label": "Order results",
       "question": "Which clause is used to sort query results?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -291,7 +291,7 @@
       "name": "q12",
       "label": "Wildcard character",
       "question": "In SQL, which wildcard represents ANY sequence of characters?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -327,7 +327,7 @@
       "name": "q14",
       "label": "Foreign key requirement",
       "question": "A FOREIGN KEY in one table must reference a ____ in another table.",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [
@@ -427,7 +427,7 @@
       "name": "q18",
       "label": "Default sort direction",
       "question": "What is the default sorting order if ASC/DESC is not specified?",
-      "type": "flag",
+      "type": "quiz",
       "required": true,
       "points": 1,
       "correct": [

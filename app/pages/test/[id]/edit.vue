@@ -30,7 +30,6 @@ const fieldTypes = ref ([
   { label: "Quiz", value: "quiz" },
   { label: "Flag", value: "flag" },
   { label: "Data", value: "data" },
-  { label: "Input", value: "input" },
   { label: "Text", value: "text" },
 ])
 
@@ -38,12 +37,14 @@ const fieldTypes = ref ([
 // todo declazre with map
 // type FieldType = (typeof fieldTypes)[number]["value"]; // 'quiz' | 'flag' | ...
 
+type FieldType = 'quiz' | 'flag' | 'data' | 'text'
+
 interface FieldForm {
   id: number;
   name: string;
   label: string;
   question: string;
-  // type: FieldType;
+  type: FieldType;
   required: boolean;
   points: number;
   placeholder?: string;
@@ -52,7 +53,7 @@ interface FieldForm {
 }
 
 /* ---------- Состояние ---------- */
-const newFieldType = ref<string>("text");
+const newFieldType = ref<FieldType>("text");
 
 const test = reactive<{
   fileName: string;
@@ -190,7 +191,6 @@ async function submit() {
         />
       </div>
       <div class="flex flex-col">
-        <USelect v-model="field.type" :items="fieldTypes" class="w-48 bg-red-500" />
         <h3 class="text-primary ">Name</h3>
         <UInput v-model="field.name" label="Name" />
         <h3 class="text-primary ">Placeholder</h3>
@@ -198,22 +198,9 @@ async function submit() {
         <h3 class="text-primary ">Question</h3>
         <UInput v-model="field.question" label="Question" />
       </div>
-      
+
       <label class="font-bold block">Type</label>
-<div>
-  <select
-    v-model="field.type"
-    class="block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-  >
-    <option
-      v-for="opt in fieldTypes"
-      :key="`${field.id}-${opt.value}`"
-      :value="opt.value"
-    >
-      {{ opt.label }}
-    </option>
-  </select>
-</div>
+      <USelect v-model="field.type" :items="fieldTypes" class="w-48" />
 
       <div class="flex flex-col">
         <UCheckbox v-model="field.required" label="Required" />
@@ -221,11 +208,29 @@ async function submit() {
         <UInput v-model.number="field.points" type="number" label="Points" />
         <h3 class="text-primary ">Placeholder</h3>
         <UInput v-model="field.placeholder" label="Placeholder" />
-        <h3 class="text-primary"> Correct</h3>
-        <UInput v-model="field.correctCsv" label="Correct (comma separated)" />
+        <template v-if="field.type === 'quiz'">
+          <h3 class="text-primary"> Correct</h3>
+          <UInput v-model="field.correctCsv" label="Correct (comma separated)" />
+        </template>
+        <template v-else-if="field.type === 'flag'">
+          <h3 class="text-primary"> Correct</h3>
+          <UCheckbox
+            :model-value="field.correctCsv === 'true'"
+            @update:model-value="val => field.correctCsv = val ? 'true' : 'false'"
+            label="True"
+          />
+        </template>
+        <template v-else-if="field.type === 'data'">
+          <h3 class="text-primary"> Correct</h3>
+          <UInput v-model="field.correctCsv" type="date" />
+        </template>
+        <template v-else-if="field.type === 'text'">
+          <h3 class="text-primary"> Correct</h3>
+          <UInput v-model="field.correctCsv" label="Correct" />
+        </template>
       </div>
       <!-- Опции -->
-      <div class="space-y-2">
+      <div v-if="field.type === 'quiz'" class="space-y-2">
         <div
           v-for="(opt, idx) in field.options"
           :key="idx"

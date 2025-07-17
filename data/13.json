@@ -8,7 +8,7 @@
       "name": "Первый вопрос",
       "label": "Вопрос",
       "question": "Инженер?",
-      "type": "input",
+      "type": "text",
       "required": true,
       "points": 10000000000,
       "correct": [

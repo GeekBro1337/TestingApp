@@ -13,6 +13,8 @@ export function useForm(formConfig: Test.FormConfig, testId: string) {
   formConfig.fields.forEach((field) => {
     if (field.type === 'quiz') {
       initialState[field.name] = []
+    } else if (field.type === 'flag') {
+      initialState[field.name] = false
     } else {
       initialState[field.name] = undefined
     }

@@ -18,7 +18,7 @@ declare global {
       id: number;
       name: string;
       label: string;
-      type: "quiz" | "flag" | "data" | "input" | "text";
+      type: "quiz" | "flag" | "data" | "text";
       placeholder?: string;
       required: boolean;
       validation?: {

@@ -7,7 +7,7 @@ interface FormField {
   id: number
   name: string
   label: string
-  type: 'quiz' | 'flag' | 'data' | 'input' | 'text'
+  type: 'quiz' | 'flag' | 'data' | 'text'
   question: string
   placeholder?: string
   required: boolean
@@ -229,13 +229,6 @@ const renderField = (field: FormField) => {
         'onUpdate:modelValue': (value: string) => state[field.name] = value
       })
 
-    case 'input':
-      return h(UInput, {
-        ...commonProps,
-        type: 'number',
-        modelValue: state[field.name] as number,
-        'onUpdate:modelValue': (value: number) => state[field.name] = value
-      })
 
     case 'data':
       return h(UInput, {

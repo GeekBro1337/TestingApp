@@ -1,7 +1,6 @@
 import { h } from 'vue'
 import {
   FieldsText,
-  FieldsInput,
   FieldsData,
   FieldsFlag,
   FieldsQuiz,
@@ -15,12 +14,6 @@ export function renderField(field: Test.FormField, state: Test.FormState) {
         modelValue: state[field.name] as string,
         'onUpdate:modelValue': (value: string) => (state[field.name] = value),
       })
-    case 'input':
-      return h(FieldsInput, {
-        field,
-        modelValue: state[field.name] as number,
-        'onUpdate:modelValue': (value: number) => (state[field.name] = value),
-      })
     case 'data':
       return h(FieldsData, {
         field,
@@ -30,8 +23,8 @@ export function renderField(field: Test.FormField, state: Test.FormState) {
     case 'flag':
       return h(FieldsFlag, {
         field,
-        modelValue: state[field.name] as string,
-        'onUpdate:modelValue': (value: string) => (state[field.name] = value),
+        modelValue: state[field.name] as boolean,
+        'onUpdate:modelValue': (value: boolean) => (state[field.name] = value),
       })
     case 'quiz':
       return h(FieldsQuiz, {

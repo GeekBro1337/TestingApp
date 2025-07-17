@@ -10,7 +10,7 @@ export const fieldSchema = z.object({
   name: z.string(),
   label: z.string(),
   question: z.string(),
-  type: z.enum(['quiz', 'flag', 'data', 'input', 'text']),
+  type: z.enum(['quiz', 'flag', 'data', 'text']),
   required: z.boolean(),
   points: z.number().int().nonnegative(),
   correct: z.array(z.string()),

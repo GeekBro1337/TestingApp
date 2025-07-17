@@ -122,7 +122,6 @@ const fieldTypes = [
   { label: "Quiz", value: "quiz" },
   { label: "Flag", value: "flag" },
   { label: "Data", value: "data" },
-  { label: "Input", value: "input" },
   { label: "Text", value: "text" },
 ] as const;
 
