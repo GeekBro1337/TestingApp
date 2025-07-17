@@ -144,7 +144,7 @@ const toast = useToast();
 
 async function submit() {
   try {
-    await $fetch(`/api/tests/${id}/update`, {
+    await $fetch(`/api/tests/${id}/edit`, {
       method: "POST",
       body: preview.value,
     });
