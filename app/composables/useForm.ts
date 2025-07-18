@@ -1,10 +1,6 @@
 import { useToast } from '#imports'
 import type { FormError, FormSubmitEvent } from '@nuxt/ui'
-
-export interface EvaluationResult {
-  total: number
-  max: number
-}
+import type { EvaluationResult } from '../utils/evaluateAnswers'
 
 export function useForm(formConfig: Test.FormConfig, testId: string) {
   const initialState: Test.FormState = {}
