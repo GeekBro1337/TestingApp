@@ -4,11 +4,11 @@ const { data: tests } = await useFetch<Array<{ id: string; title: string }>>('/a
 
 <template>
   <UContainer class="py-8">
-    <h1 class="text-5xl text-primary-600 text-center mb-8">Welcome to TestingApp</h1>
+    <h1 class="text-3xl font-bold mb-4">Available Tests</h1>
     <ul class="space-y-2">
-      <li v-for="test in tests" :key="test.id" class="text-center">
-        <NuxtLink :to="`/test/${test.id}`" class="text-primary-600 underline">
-          {{ test.title }}
+      <li v-for="t in tests" :key="t.id">
+        <NuxtLink :to="`/test/${t.id}`" class="text-primary-600 underline">
+          {{ t.title }}
         </NuxtLink>
       </li>
     </ul>
