@@ -8,6 +8,10 @@
       placeholder="example.json"
     />
     <UInput v-model="test.title" label="Title" />
+    <div class="flex items-center gap-2">
+      <span>Category:</span>
+      <USelect v-model="selectedCategory" :items="catStore.list" class="w-48" />
+    </div>
     <UTextarea v-model="test.description" label="Description" />
 
     <!-- Список полей -->
@@ -118,8 +122,9 @@
 
 <script lang="ts" setup>
 import type { ContextMenuItem } from '@nuxt/ui'
-import { reactive, computed, ref } from "vue";
-import { useToast } from "#imports";
+import { reactive, computed, ref } from 'vue'
+import { useToast } from '#imports'
+import { useCategoriesStore } from '~/stores/categories'
 
 /* ---------- Типы ---------- */
 interface Option {
@@ -162,19 +167,24 @@ interface FieldForm {
 }
 
 /* ---------- Состояние ---------- */
-const newFieldType = ref<FieldType>("text");
+const newFieldType = ref<FieldType>('text')
+const catStore = useCategoriesStore()
+await catStore.load()
+const selectedCategory = ref(catStore.list[0] || '')
 
 const test = reactive<{
-  fileName: string;
-  title: string;
-  description: string;
-  fields: FieldForm[];
+  fileName: string
+  title: string
+  description: string
+  category: string
+  fields: FieldForm[]
 }>({
-  fileName: "",
-  title: "",
-  description: "",
+  fileName: '',
+  title: '',
+  description: '',
+  category: '',
   fields: [],
-});
+})
 
 /* ---------- CRUD ---------- */
 function addField() {
@@ -212,6 +222,7 @@ const preview = computed(() => ({
   fileName: test.fileName,
   title: test.title,
   description: test.description,
+  category: selectedCategory.value,
   fields: test.fields.map((f) => ({
     id: f.id,
     name: f.name,

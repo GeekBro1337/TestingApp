@@ -1,7 +1,8 @@
 import { defineEventHandler, readBody, createError } from 'h3';
 import type { H3Event } from 'h3';
 import { promises as fs } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { findTestFile } from '../../utils/findTestFile';
 import { testSchema } from '../../schema/test';
 
 export default defineEventHandler(async (event: H3Event) => {
@@ -16,6 +17,7 @@ export default defineEventHandler(async (event: H3Event) => {
   const parsed = testSchema.safeParse({
     ...body,
     fileName: `${id}.json`,
+    category: (body as any).category,
   });
   if (!parsed.success) {
     throw createError({
@@ -25,10 +27,10 @@ export default defineEventHandler(async (event: H3Event) => {
     });
   }
 
-  const dir = join(process.cwd(), 'data');
-  const filePath = join(dir, `${id}.json`);
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(filePath, JSON.stringify(parsed.data, null, 2), 'utf8');
+  const existing = await findTestFile(id)
+  const filePath = existing || join(process.cwd(), 'data', parsed.data.category, `${id}.json`)
+  await fs.mkdir(dirname(filePath), { recursive: true })
+  await fs.writeFile(filePath, JSON.stringify(parsed.data, null, 2), 'utf8')
 
   return { success: true, file: `${id}.json` };
 });

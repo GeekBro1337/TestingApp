@@ -22,5 +22,6 @@ export const testSchema = z.object({
   fileName: z.string().regex(/\.json$/, { message: 'fileName must end with .json' }),
   title: z.string(),
   description: z.string(),
+  category: z.string(),
   fields: z.array(fieldSchema).min(1),
 });

@@ -34,6 +34,7 @@ declare global {
     interface FormConfig {
       title: string;
       description: string;
+      category: string;
       fields: FormField[];
       metadata?: Metadata;
     }

@@ -163,7 +163,10 @@
       "type": "flag",
       "required": false,
       "points": 1,
-      "correct": ["true"]
+      "correct": [
+        "true"
+      ]
     }
-  ]
+  ],
+  "category": "general"
 }

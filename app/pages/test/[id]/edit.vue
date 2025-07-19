@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import type { ContextMenuItem } from '@nuxt/ui'
-import { reactive, computed, ref } from "vue";
-import { useToast } from "#imports";
+import { reactive, computed, ref } from 'vue'
+import { useToast } from '#imports'
+import { useCategoriesStore } from '~/stores/categories'
 import { useRoute } from "vue-router";
 const route = useRoute();
 const id = route.params.id as string;
@@ -54,16 +55,21 @@ interface FieldForm {
 
 /* ---------- Состояние ---------- */
 const newFieldType = ref<FieldType>("text");
+const catStore = useCategoriesStore()
+await catStore.load()
+const selectedCategory = ref(catStore.list[0] || '')
 
 const test = reactive<{
   fileName: string;
   title: string;
   description: string;
+  category: string;
   fields: FieldForm[];
 }>({
   fileName: "",
   title: "",
   description: "",
+  category: "",
   fields: [],
 });
 
@@ -71,6 +77,8 @@ if (loaded.value) {
   test.fileName = loaded.value.fileName;
   test.title = loaded.value.title;
   test.description = loaded.value.description;
+  test.category = loaded.value.category;
+  selectedCategory.value = loaded.value.category;
   test.fields = loaded.value.fields.map((f) => ({
     id: f.id,
     name: f.name,
@@ -121,6 +129,7 @@ const preview = computed(() => ({
   fileName: test.fileName,
   title: test.title,
   description: test.description,
+  category: selectedCategory.value,
   fields: test.fields.map((f) => ({
     id: f.id,
     name: f.name,
@@ -170,6 +179,10 @@ async function submit() {
      <div class="flex flex-col">
       <h3 class="text-3xl text-primary text-center">Header</h3>
       <UInput v-model="test.title" label="Title" size="xl" />
+      <div class="flex items-center gap-2 mt-2">
+        <span>Category:</span>
+        <USelect v-model="selectedCategory" :items="catStore.list" class="w-48" />
+      </div>
       <h3 class="text-xl text-neutral text-center">Description</h3>
       <UTextarea v-model="test.description" label="Description" size="xl" />
     </div>

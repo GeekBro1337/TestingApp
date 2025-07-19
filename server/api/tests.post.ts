@@ -23,7 +23,7 @@ export default defineEventHandler(async (event: H3Event) => {
   }
   
   const data = parsed.data; // тип гарантирован
-  const dir = path.resolve('data');
+  const dir = path.resolve('data', data.category);
   const filePath = path.join(dir, data.fileName);
   
   // 3. Создаём папку Data, если нужно
