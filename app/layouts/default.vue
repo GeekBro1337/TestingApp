@@ -2,9 +2,12 @@
 import { onMounted } from "vue";
 import { useUserStore } from "~/stores/user";
 import { useEditStore } from "~/stores/edit";
+import { useTimerStore } from "~/stores/timer";
+import Timer from "~/components/Timer.vue";
 
 const userStore = useUserStore();
 const editStore = useEditStore();
+const timerStore = useTimerStore();
 
 onMounted(() => {
   editStore.initialize();
@@ -94,7 +97,8 @@ const navItems = [
             >
             newTest
             </UButton>
-            <clock/>
+            <clock v-if="!timerStore.running" />
+            <Timer v-else />
           </div>
         </div>
     </header>

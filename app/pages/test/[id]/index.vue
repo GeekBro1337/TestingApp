@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
 import { useEditStore } from "~/stores/edit";
+import { useTimerStore } from "~/stores/timer";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const user = useUserStore();
 const edit = useEditStore();
@@ -10,6 +12,24 @@ const id = route.params.id as string
 const { data: formConfig } = await useFetch<Test.FormConfig>(`/api/tests/${id}`)
 
 const { state, validate, onSubmit, result } = useForm(formConfig.value, id)
+
+const timer = useTimerStore()
+const showModal = ref(false)
+
+onMounted(() => {
+  if (formConfig.value?.timed) {
+    showModal.value = true
+  }
+})
+
+function startTest() {
+  timer.start()
+  showModal.value = false
+}
+
+onBeforeUnmount(() => {
+  timer.stop()
+})
 </script>
 
 <template>
@@ -65,4 +85,12 @@ const { state, validate, onSubmit, result } = useForm(formConfig.value, id)
       <p>You scored {{ result.total }} out of {{ result.max }}</p>
     </div>
   </div>
+  <UModal v-model="showModal">
+    <div class="p-4 space-y-4">
+      <p class="text-lg text-center">Готовы начать тест?</p>
+      <div class="text-center">
+        <UButton color="primary" @click="startTest">Готов</UButton>
+      </div>
+    </div>
+  </UModal>
 </template>

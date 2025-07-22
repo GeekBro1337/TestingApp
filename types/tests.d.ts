@@ -5,6 +5,7 @@ declare global {
     interface Metadata {
       fileName: string;
       title: string;
+      timed?: boolean;
       fields: FormField[];
       // answers: answer[]
     }
@@ -33,6 +34,7 @@ declare global {
     }
     interface FormConfig {
       title: string;
+      timed?: boolean;
       description: string;
       fields: FormField[];
       metadata?: Metadata;
